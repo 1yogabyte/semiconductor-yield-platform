@@ -11,6 +11,9 @@ def run():
     df_sensors = pd.read_csv(os.path.join(DATA_DIR, "secom", "secom.data"), sep=r"\s+", header=None)
     df_labels = pd.read_csv(os.path.join(DATA_DIR, "secom", "secom_labels.data"), sep=r"\s+", header=None)
 
+    df_sensors.insert(0, "row_id", df_sensors.index)
+    df_labels.insert(0, "row_id", df_labels.index)
+
     conn = duckdb.connect(os.path.join(DATA_DIR, "secom_bronze.duckdb"))
 
     conn.execute("CREATE OR REPLACE TABLE raw_sensors AS SELECT * FROM df_sensors")

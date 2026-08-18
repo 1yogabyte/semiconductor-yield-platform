@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_silver
+    description: Cleaned SECOM sensor readings joined with pass/fail labels. Sensors with >20% missing values dropped; remaining nulls median-imputed.
+    columns:
+      - name: label
+        description: "-1 = pass, 1 = fail"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [-1, 1]
+      - name: timestamp
+        data_tests:
+          - not_null

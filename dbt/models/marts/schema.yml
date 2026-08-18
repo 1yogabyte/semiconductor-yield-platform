@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: gold_yield_by_month
+    description: Monthly yield rate (% of passing units).
+    columns:
+      - name: month
+        data_tests:
+          - unique
+          - not_null
+      - name: yield_rate_pct
+        data_tests:
+          - not_null
+
+  - name: gold_sensor_correlation
+    description: Top 20 sensors ranked by mean-value difference between passing and failing units.
+    columns:
+      - name: sensor
+        data_tests:
+          - unique
+          - not_null
+      - name: mean_difference
+        data_tests:
+          - not_null
+
+  - name: gold_summary
+    description: Single-row snapshot of the overall process (unit counts, yield rate, date range, sensor count).
+    columns:
+      - name: total_units
+        data_tests:
+          - not_null
