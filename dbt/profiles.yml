@@ -1,0 +1,11 @@
+secom_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/secom_dbt.duckdb'
+      threads: 4
+      attach:
+        - path: '../data/secom_bronze.duckdb'
+          alias: bronze
+          read_only: true
