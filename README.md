@@ -290,3 +290,14 @@ inside the Airflow containers. No credentials are committed to this repository.
 ├── data/                  SECOM source files + DuckDB databases
 └── .github/workflows/     CI
 ```
+
+---
+
+## License and attribution
+
+The code in this repository is released under the [MIT License](LICENSE).
+
+The **SECOM dataset** is not mine and is not covered by that license. It comes
+from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/179/secom),
+donated in 2008 by **Michael McCann and Adrian Johnston**. Refer to the UCI page
+for its terms before reusing the data.
