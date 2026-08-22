@@ -17,6 +17,18 @@ units, and how is yield trending over time?
 
 ---
 
+## Dashboard
+
+The Streamlit app reads the Gold tables from BigQuery: overall process summary,
+monthly yield trend, and the sensors whose readings differ most between passing
+and failing units.
+
+<p align="center">
+  <img src="docs/dashboard.png" alt="Streamlit dashboard showing yield summary, monthly yield trend, and top failure-correlated sensors" width="720">
+</p>
+
+---
+
 ## Architecture
 
 ```mermaid
