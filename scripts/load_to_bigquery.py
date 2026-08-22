@@ -1,7 +1,7 @@
-from google.cloud import bigquery
 import os
-import duckdb
 
+import duckdb
+from google.cloud import bigquery
 
 PROJECT_ID = "secom-yield-platform"
 DATASET_ID = "secom_gold"

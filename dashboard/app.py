@@ -1,8 +1,8 @@
 import os
+
+import altair as alt
 import streamlit as st
 from google.cloud import bigquery
-import altair as alt
-
 
 PROJECT_ID = "secom-yield-platform"
 DATASET_ID = "secom_gold"
