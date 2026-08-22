@@ -5,6 +5,7 @@ SCRIPT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scr
 sys.path.insert(0, SCRIPT_DIR)
 
 from bronze_ingest import run as run_bronze
+from load_to_bigquery import run as run_bq_load
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -31,4 +32,9 @@ with DAG(
         cwd=DBT_PROJECT_DIR,
     )
 
-    bronze_task >> dbt_build_task
+    bq_load_task = PythonOperator(
+        task_id="load_to_bigquery",
+        python_callable=run_bq_load
+    )
+
+    bronze_task >> dbt_build_task >> bq_load_task
